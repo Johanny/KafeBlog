@@ -1,0 +1,41 @@
+{% extends "KafeBlogBundle::layout.html.twig" %}
+ 
+{% block title %}
+  {{ article.titre }} - {{ parent() }}
+{% endblock %}
+ 
+{% block kafeblog_body %}
+ 
+    {% include "KafeBlogBundle:Blog:article.html.twig" %}
+
+    <p>
+        <a href="{{ path('kafeblog_accueil') }}" class="btn">
+            <i class="icon-chevron-left"></i>
+            Retour à la liste
+        </a>
+        <a href="{{ path('kafeblog_modifier', {'id': article.id}) }}" class="btn">
+            <i class="icon-edit"></i>
+            Modifier l'article
+        </a>
+        <a href="{{ path('kafeblog_supprimer', {'id': article.id}) }}" class="btn">
+            <i class="icon-trash"></i>
+            Supprimer l'article
+        </a>
+    </p>
+    
+    <h2>
+        {% if article.nbCommentaires == 1 %}
+            Le commentaire
+        {% else %}
+            Les {{article.nbCommentaires}} commentaires
+        {% endif %}
+    </h2>
+    
+    {% for commentaire in article.commentaires %}
+        <div class="well well-small">
+            <p>{{ commentaire.contenu }}</p>
+            <i>De {{commentaire.auteur}}, le {{ commentaire.date|date('d/m/Y') }}</i>
+        </div>
+    {% endfor %}
+ 
+{% endblock %}

@@ -1,0 +1,12 @@
+parameters:
+#    kafe_blog.example.class: Kafe\BlogBundle\Example
+
+services:
+#    kafe_blog.example:
+#        class: %kafe_blog.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+services:
+    kafe_blog.antispam:
+        class: Kafe\BlogBundle\Antispam\KafeAntispam
+        arguments: [@mailer, %locale%, 3]

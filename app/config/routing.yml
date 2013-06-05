@@ -1,0 +1,4 @@
+kafe_blog:
+    resource: "@KafeBlogBundle/Resources/config/routing.yml"
+    prefix:   /blog
+

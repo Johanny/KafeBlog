@@ -1,0 +1,31 @@
+kafeblog_accueil:
+    path:      /{page}
+    defaults:  { _controller: KafeBlogBundle:Blog:index, page: 1 }
+    requirements:
+        page:  \d*
+ 
+kafeblog_voir:
+    path:      /article/{id}
+    defaults:  { _controller: KafeBlogBundle:Blog:voir }
+    requirements:
+        id:  \d+
+ 
+kafeblog_ajouter:
+    path:      /ajouter
+    defaults:  { _controller: KafeBlogBundle:Blog:ajouter }
+ 
+kafeblog_modifier:
+    path:      /modifier/{id}
+    defaults:  { _controller: KafeBlogBundle:Blog:modifier }
+    requirements:
+        id:  \d+
+ 
+kafeblog_supprimer:
+    path:      /supprimer/{id}
+    defaults:  { _controller: KafeBlogBundle:Blog:supprimer }
+    requirements:
+        id:  \d+
+
+kafeblog_test:
+    path:      /test
+    defaults:  { _controller: KafeBlogBundle:Blog:test }
